@@ -16,6 +16,18 @@ const userSchema = new mongoose.Schema(
       lowercase: true,
       validate: [validator.isEmail, 'Please provide a valid email'],
     },
+    phone: {
+      type: String,
+      required: [true, 'Please provide your phone'],
+      unique: true,
+      validate: {
+              validator:  function(el) {
+                return /(\+9639(3|4|5|6|8|9)\d{7})|09(3|4|5|6|8|9\d{7})/.test(el);
+              },
+              message: "phone are not validte!",
+            },
+        
+    },
     photo: {
       type: String,
       default: 'default.jpg',
@@ -24,6 +36,17 @@ const userSchema = new mongoose.Schema(
       type: String,
       enum: ['user', 'admin'],
       default: 'user',
+    },
+    gender: {
+      type: String,
+      enum: ['male', 'female'],
+      required: [true, 'Please provide your gender'],
+
+    },
+    birthdate: {
+      type: Date,
+      required: [true, 'Please provide your birthdate'],
+
     },
     password: {
       type: String,
