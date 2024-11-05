@@ -48,6 +48,24 @@ const userSchema = new mongoose.Schema(
       required: [true, 'Please provide your birthdate'],
 
     },
+    specialization: {
+      type: String,
+      required:function (){
+        return this.role=="doctor"? [true, 'Please provide your yearsOfExperiance ']:false
+      },
+      value:function (){
+        return this.role=="user"? undefined:this.specialization
+      }
+    },
+    yearsOfExperiance: {
+      type: Number,
+      required:function (){
+        return this.role=="doctor"? [true, 'Please provide your yearsOfExperiance ']:false
+      }, value:function (){
+        return this.role=="user"? undefined:this.yearsOfExperiance
+      }
+
+    },
     password: {
       type: String,
       required: [true, 'Please provide a password'],
