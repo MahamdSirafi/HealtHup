@@ -1,12 +1,12 @@
-const Cq = require("../models/cqModel");
+const Comment = require("../models/commentModel");
 const AppError = require("../utils/appError");
 const handlerFactory = require("../utils/handlerFactory");
 const catchAsync = require("../utils/catchAsync");
-exports.getcq = handlerFactory.getOne(Cq);
-exports.createcq = handlerFactory.createOne(Cq);
-exports.updatecq = handlerFactory.updateOne(Cq);
-exports.deletecq = handlerFactory.deleteOne(Cq);
-exports.getAllcq = handlerFactory.getAll(Cq);
+exports.getcomment = handlerFactory.getOne(Comment);
+exports.createcomment = handlerFactory.createOne(Comment);
+exports.updatecomment = handlerFactory.updateOne(Comment);
+exports.deletecomment = handlerFactory.deleteOne(Comment);
+exports.getAllcomment = handlerFactory.getAll(Comment);
 exports.defult = catchAsync(async (req, res, next) => {
   //write your code here
   const doc = []

@@ -74,12 +74,16 @@ app.use(
 //ضغط البيانات قبل ارسالها من اجل تسريع النقل
 app.use(compression());
 const userRouter = require('./routes/userRoutes');
+const commentRouter= require('./routes/commentRouter')
+const cqRouter= require('./routes/cqRouter')
 const articlaRouter= require('./routes/articlaRouter')
 const cqRouter= require('./routes/cqRouter')
 
 // 3) ROUTES
 app.use('/docs', swaggerUI.serve, swaggerUI.setup(swaggerSpec));
 app.use('/', userRouter);
+app.use('/api/v1.0.0/comments', commentRouter);
+app.use('/api/v1.0.0/cqs', cqRouter);
 app.use('/api/v1.0.0/articlas', articlaRouter);
 app.use('/api/v1.0.0/cqs', cqRouter);
 app.use('/api/v1.0.0/users', userRouter);
