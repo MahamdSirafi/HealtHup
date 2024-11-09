@@ -5,7 +5,6 @@ question : {
     required : [true , 'must enter question'],
     type : String,
     },
-
 answer  : {
     required : [true , 'must enter '],
     type : String,
