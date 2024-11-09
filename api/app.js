@@ -79,7 +79,7 @@ const commentRouter= require('./routes/commentRouter')
 const cqRouter = require('./routes/cqRouter')
 
 const articlaRouter= require('./routes/articlaRouter')
-const cqRouter= require('./routes/cqRouter')
+const testRouter= require('./routes/testRouter')
 
 // 3) ROUTES
 app.use('/docs', swaggerUI.serve, swaggerUI.setup(swaggerSpec));
@@ -88,7 +88,7 @@ app.use('/api/v1.0.0/questions', questionRouter);
 app.use('/api/v1.0.0/comments', commentRouter);
 app.use('/api/v1.0.0/cqs', cqRouter);
 app.use('/api/v1.0.0/articlas', articlaRouter);
-app.use('/api/v1.0.0/cqs', cqRouter);
+app.use('/api/v1.0.0/cqs', testRouter);
 app.use('/api/v1.0.0/users', userRouter);
 //في حال طلب مورد غير موجود
 app.all('*', (req, res, next) => {
