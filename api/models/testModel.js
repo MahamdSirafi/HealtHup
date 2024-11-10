@@ -14,11 +14,11 @@ doctor  : {
     
   rate: [
     {
-      type: {
         rate: {
           required: [true, 'must enter rate'],
-          type: Number,
-        },
+          type: String,
+      },
+      
         minrate: {
           required: [true, 'must enter minrate'],
           type: Number,
@@ -28,7 +28,7 @@ doctor  : {
           type: Number,
         },
       }
-    }],
+    ],
 
     });
 const Test = mongoose.model("Test", testSchema);

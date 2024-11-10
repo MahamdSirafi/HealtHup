@@ -13,7 +13,6 @@ type : String,
   
   answers: [
               {
-              type:{
                 answer:{
                 required: [true, 'must enter answer'],
                 type: String,
@@ -23,7 +22,6 @@ type : String,
                 type: Number,
               },
           },
-        },
       ],
     
     
