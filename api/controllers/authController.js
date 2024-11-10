@@ -36,8 +36,8 @@ exports.signup = catchAsync(async (req, res, next) => {
     password: req.body.password,
   });
   const url = `${req.protocol}://${req.get('host')}/me`;
-  await new Email(newUser, url)
-    .welcomeMailerSend()
+ // await new Email(newUser, url)
+   // .welcomeMailerSend()
     // .catch(async (er) => {
     //   await User.deleteOne({ id: newUser.id });
     // });
