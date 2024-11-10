@@ -11,7 +11,10 @@ doctor  : {
         required: [true, 'must enter name'],
         type: String,
       },
-    
+      description: {
+        required: [true, 'must enter description'],
+        type: String,
+      },
   rate: [
     {
         rate: {
@@ -27,6 +30,11 @@ doctor  : {
           required: [true, 'must enter maxrate'],
           type: Number,
         },
+        advices: {
+          required: [true, 'must enter advices'],
+          type: Array,
+        },
+        
       }
     ],
 

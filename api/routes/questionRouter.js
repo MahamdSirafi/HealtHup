@@ -3,11 +3,13 @@ const questionController = require("../controllers/questionController");
   const express = require("express");
   const router = express.Router();
   router.use(authMiddlewers.protect);
-  router.route("/").get(questionController.getAllquestion).post(questionController.createquestion);
+  router.route("/").get(questionController.getAllquestion)
+  .post(authMiddlewers.restrictTo("doctor","admin"),
+  questionController.createquestion);
   router
     .route("/:id")
     .get(questionController.getquestion)
-    .patch(questionController.updatequestion)
-    .delete(questionController.deletequestion);
+    .patch(authMiddlewers.restrictTo("doctor","admin"),questionController.updatequestion)
+    .delete(authMiddlewers.restrictTo("doctor","admin"),questionController.deletequestion);
   module.exports = router;
   
