@@ -19,7 +19,7 @@ exports.addVarBody = (variableName, value) => {
   return (req, res, next) => {
     let newValue;
     if (req.params[value]) newValue = req.params[value];
-    if (value == "userId") newValue = req.user._id;
+    if (value == "userId") newValue = req.user._id;                                                                                                                                                                                                                                  
     req.body[variableName] = newValue || value;
     next();
   };
