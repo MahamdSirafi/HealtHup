@@ -9,6 +9,8 @@ const Articla = require("../models/articlaModel");
   router.route("/").get(articlaController.getAllarticla)
   .post( authMiddlewers.restrictTo("doctor","admin"),dynamicMiddleware.addVarBody("doctor","userId"),articlaController.createarticla);
   router
+  .route("/:id/addlikes").patch(articlaController.addLike)
+  router
     .route("/:id")
     .get(articlaController.getarticla)
     .patch(authMiddlewers.restrictTo("doctor","admin"),checkOwner(Articla,"doctor","id"),articlaController.updatearticla)

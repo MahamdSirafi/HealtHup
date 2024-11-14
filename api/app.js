@@ -74,8 +74,8 @@ app.use(
 //ضغط البيانات قبل ارسالها من اجل تسريع النقل
 app.use(compression());
 const userRouter = require('./routes/userRoutes');
+const chatRouter= require('./routes/chatRouter')
 const diseaseRouter= require('./routes/diseaseRouter')
-//const diseaseRouter= require('./routes/diseaseRouter')
 const questionRouter= require('./routes/questionRouter')
 const commentRouter= require('./routes/commentRouter')
 const cqRouter = require('./routes/cqRouter')
@@ -86,12 +86,12 @@ const testRouter= require('./routes/testRouter')
 // 3) ROUTES
 app.use('/docs', swaggerUI.serve, swaggerUI.setup(swaggerSpec));
 app.use('/', userRouter);
+app.use('/api/v1.0.0/chats', chatRouter);
 app.use('/api/v1.0.0/diseases', diseaseRouter);
-//app.use('/api/v1.0.0/diseases', diseaseRouter);
 app.use('/api/v1.0.0/questions', questionRouter);
 app.use('/api/v1.0.0/comments', commentRouter);
 app.use('/api/v1.0.0/cqs', cqRouter);
-app.use('/api/v1.0.0/articlas', articlaRouter);
+app.use('/api/v1.0.0/articles', articlaRouter);
 app.use('/api/v1.0.0/cqs', testRouter);
 app.use('/api/v1.0.0/users', userRouter);
 //في حال طلب مورد غير موجود

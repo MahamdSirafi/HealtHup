@@ -13,14 +13,22 @@ type : String,
 type : String,
     },
     vedio : {
-      required : [true , 'must enter vedio'],
+
 type : String,
     },
-    likes : {
+    photo : {
+      required : [true , 'must enter cat'],
 
+      type : String,
+          },
+    likes : {
       type : Number,
       default:0,
     },
+    likers  :[ {
+type : mongoose.Schema.ObjectId,
+ref : 'User'
+    }],
     doctor  : {
       required : [true , 'must enter '],
 type : mongoose.Schema.ObjectId,
