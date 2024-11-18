@@ -39,6 +39,15 @@ ref : 'User'
       timestamps: true,
       versionKey: false
     });
+    articlaSchema.post("findOneAndDelete", async function (doc) {
+        // console.log(doc);
+        if (doc) {
+          try {
+            await Comment.deleteMany({ articla: doc._id });
+         } catch (error) {
+            return next(new AppError("error deleting cars", 500));//ايجاد الخطأ نغير الرسالة والرمز         }
+   }
+   }});
     const Articla = mongoose.model("Articla", articlaSchema);
     module.exports = Articla;
     

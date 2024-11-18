@@ -14,6 +14,11 @@ ref : 'Doctor'
 type : mongoose.Schema.ObjectId,
 ref : 'User'
     },
+    articla : {
+      required : [true , 'must enter user'],
+type : mongoose.Schema.ObjectId,
+ref : 'articla'
+    },
     
 },{
       timestamps: true,

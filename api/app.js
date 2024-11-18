@@ -77,7 +77,7 @@ const userRouter = require('./routes/userRoutes');
 const chatRouter= require('./routes/chatRouter')
 const diseaseRouter= require('./routes/diseaseRouter')
 const questionRouter= require('./routes/questionRouter')
-const commentRouter= require('./routes/commentRouter')
+
 const cqRouter = require('./routes/cqRouter')
 
 const articlaRouter= require('./routes/articlaRouter')
@@ -89,7 +89,7 @@ app.use('/', userRouter);
 app.use('/api/v1.0.0/chats', chatRouter);
 app.use('/api/v1.0.0/diseases', diseaseRouter);
 app.use('/api/v1.0.0/questions', questionRouter);
-app.use('/api/v1.0.0/comments', commentRouter);
+
 app.use('/api/v1.0.0/cqs', cqRouter);
 app.use('/api/v1.0.0/articles', articlaRouter);
 app.use('/api/v1.0.0/cqs', testRouter);
