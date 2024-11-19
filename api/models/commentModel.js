@@ -4,11 +4,11 @@ const commentSchema = new mongoose.Schema({
       required : [true , 'must enter comment'],
 type : String,
     },
-    doctor : {
-      required : [true , 'must enter doctor'],
-type : mongoose.Schema.ObjectId,
-ref : 'Doctor'
-    },
+     doctor : {
+       required : [true , 'must enter doctor'],
+      type : mongoose.Schema.ObjectId,
+      ref : 'Doctor'
+     },
     user : {
       required : [true , 'must enter user'],
 type : mongoose.Schema.ObjectId,
