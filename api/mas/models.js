@@ -107,8 +107,8 @@ unique or u`);
     const ${
       createName[0].toUpperCase() + createName.slice(1)
     } = mongoose.model("${
-    createName[0].toUpperCase() + createName.slice(1)
-  }", ${createName}Schema);
+      createName[0].toUpperCase() + createName.slice(1)
+    }", ${createName}Schema);
     module.exports = ${createName[0].toUpperCase() + createName.slice(1)};
     `;
   console.log('Created successfully');

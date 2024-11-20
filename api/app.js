@@ -69,27 +69,22 @@ app.use(xss());
 app.use(
   hpp({
     whitelist: ['duration', 'difficulty', 'price'],
-  })
+  }),
 );
 //ضغط البيانات قبل ارسالها من اجل تسريع النقل
 app.use(compression());
 const userRouter = require('./routes/userRoutes');
-const chatRouter= require('./routes/chatRouter')
-const diseaseRouter= require('./routes/diseaseRouter')
-const questionRouter= require('./routes/questionRouter')
-
-const cqRouter = require('./routes/cqRouter')
-
-const articlaRouter= require('./routes/articlaRouter')
-const testRouter= require('./routes/testRouter')
+const chatRouter = require('./routes/chatRouter');
+const diseaseRouter = require('./routes/diseaseRouter');
+const cqRouter = require('./routes/cqRouter');
+const articlaRouter = require('./routes/articlaRouter');
+const testRouter = require('./routes/testRouter');
 
 // 3) ROUTES
 app.use('/docs', swaggerUI.serve, swaggerUI.setup(swaggerSpec));
 app.use('/', userRouter);
 app.use('/api/v1.0.0/chats', chatRouter);
 app.use('/api/v1.0.0/diseases', diseaseRouter);
-app.use('/api/v1.0.0/questions', questionRouter);
-
 app.use('/api/v1.0.0/cqs', cqRouter);
 app.use('/api/v1.0.0/articles', articlaRouter);
 app.use('/api/v1.0.0/cqs', testRouter);
@@ -112,7 +107,7 @@ mongoose
     app.listen(process.env.PORT, () => {
       console.log(
         `Example app listening at http://localhost:${process.env.PORT}
-Example app listening at http://localhost:${process.env.PORT}/docs`
+Example app listening at http://localhost:${process.env.PORT}/docs`,
       );
     });
   })

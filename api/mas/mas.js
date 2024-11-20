@@ -12,7 +12,7 @@ if (process.argv[2] == 'all' || process.argv[2] == 'c') {
   }
   const fileNamecontroller = path.join(
     './controllers',
-    createName + 'Controller' + '.js'
+    createName + 'Controller' + '.js',
   );
   const codecontroller = `const ${
     createName[0].toUpperCase() + createName.slice(1)

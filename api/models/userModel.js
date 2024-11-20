@@ -21,12 +21,11 @@ const userSchema = new mongoose.Schema(
       required: [true, 'Please provide your phone'],
       unique: true,
       validate: {
-              validator:  function(el) {
-                return /(\+9639(3|4|5|6|8|9)\d{7})|09(3|4|5|6|8|9\d{7})/.test(el);
-              },
-              message: "phone are not validte!",
-            },
-        
+        validator: function (el) {
+          return /(\+9639(3|4|5|6|8|9)\d{7})|09(3|4|5|6|8|9\d{7})/.test(el);
+        },
+        message: 'phone are not validte!',
+      },
     },
     photo: {
       type: String,
@@ -34,33 +33,33 @@ const userSchema = new mongoose.Schema(
     },
     role: {
       type: String,
-      enum: ['user', 'admin','doctor'],
+      enum: ['user', 'admin', 'doctor'],
       default: 'user',
     },
     gender: {
       type: String,
       enum: ['male', 'female'],
       required: [true, 'Please provide your gender'],
-
     },
     birthdate: {
       type: Date,
       required: [true, 'Please provide your birthdate'],
-
     },
     specialization: {
       type: String,
-      required:function (){
-        return this.role=="doctor"? [true, 'Please provide your yearsOfExperiance ']:false
+      required: function () {
+        return this.role == 'doctor'
+          ? [true, 'Please provide your yearsOfExperiance ']
+          : false;
       },
-     
     },
     yearsOfExperiance: {
       type: Number,
-      required:function (){
-        return this.role=="doctor"? [true, 'Please provide your yearsOfExperiance ']:false
-      }
-
+      required: function () {
+        return this.role == 'doctor'
+          ? [true, 'Please provide your yearsOfExperiance ']
+          : false;
+      },
     },
     password: {
       type: String,
@@ -80,7 +79,7 @@ const userSchema = new mongoose.Schema(
       default: Date.now(),
     },
   },
-  { versionKey: false }
+  { versionKey: false },
 );
 userSchema.pre('save', async function (next) {
   // Only run this function if password was actually modified
@@ -97,7 +96,7 @@ userSchema.pre('save', function (next) {
 
 userSchema.methods.correctPassword = async function (
   candidatePassword,
-  userPassword
+  userPassword,
 ) {
   return await bcrypt.compare(candidatePassword, userPassword);
 };
@@ -105,7 +104,7 @@ userSchema.methods.changedPasswordAfter = function (JWTTimestamp) {
   if (this.passwordChangedAt) {
     const changedTimestamp = parseInt(
       this.passwordChangedAt.getTime() / 1000,
-      10
+      10,
     );
     return JWTTimestamp < changedTimestamp;
   }

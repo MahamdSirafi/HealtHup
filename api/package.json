@@ -31,9 +31,11 @@
   },
   "devDependencies": {
     "morgan": "^1.10.0",
+    "prettier": "3.3.3",
     "readline-sync": "^1.4.10"
   },
   "scripts": {
-    "start": "nodemon app.js"
+    "start": "nodemon app.js",
+    "format": "prettier --write \"**/*.js\" "
   }
 }
