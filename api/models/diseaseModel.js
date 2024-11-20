@@ -4,10 +4,10 @@ const diseaseSchema = new mongoose.Schema({
       required : [true , 'must enter name'],
 type : String,
     },
-    symptoms : {
+    symptoms :[ {
       required : [true , 'must enter symptoms'],
 type : String,
-    },
+    }],
     description : {
       required : [true , 'must enter description'],
 type : String,
@@ -31,7 +31,7 @@ use: {
     ] ,
     doctor : {
       required : [true , 'must enter doctor'],
-type : String,
+type : mongoose.Schema.ObjectId,
 ref : 'User'
     },
     

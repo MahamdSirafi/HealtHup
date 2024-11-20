@@ -1,4 +1,5 @@
 const mongoose = require("mongoose");
+const Comment = require("./commentModel");
 const articlaSchema = new mongoose.Schema({
   title : {
       required : [true , 'must enter title'],
@@ -43,11 +44,11 @@ ref : 'User'
         // console.log(doc);
         if (doc) {
           try {
-            await Comment.deleteMany({ articla: doc._id });
+            await Comment.deleteMany({ article: doc._id });
          } catch (error) {
-            return next(new AppError("error deleting cars", 500));//ايجاد الخطأ نغير الرسالة والرمز         }
+            return next(new AppError("error deleting comment", 500));//ايجاد الخطأ نغير الرسالة والرمز         }
    }
    }});
-    const Articla = mongoose.model("Articla", articlaSchema);
-    module.exports = Articla;
+    const Article = mongoose.model("Article", articlaSchema);
+    module.exports = Article;
     
