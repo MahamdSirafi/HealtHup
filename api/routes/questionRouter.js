@@ -2,7 +2,7 @@ const questionController = require('../controllers/questionController');
 const authMiddlewers = require('./../middlewares/authMiddlewers');
 const { addQuery, addVarBody } = require('./../middlewares/dynamicMiddleware');
 const express = require('express');
-const router = express.Router();
+const router = express.Router({mergeParams:true});
 router.use(authMiddlewers.protect);
 router
   .route('/')

@@ -4,7 +4,7 @@ const { addQuery, addVarBody } = require('./../middlewares/dynamicMiddleware');
 const { checkOwner } = require('../middlewares/checkMiddleware');
 const express = require('express');
 const Comment = require('../models/commentModel');
-const router = express.Router();
+const router = express.Router({mergeParams:true});
 router.use(authMiddlewers.protect);
 router
   .route('/')
