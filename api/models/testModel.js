@@ -15,6 +15,10 @@ const testSchema = new mongoose.Schema({
     required: [true, 'must enter description'],
     type: String,
   },
+  photo: {
+      type: String,
+      default: 'default.jpg',
+    },
   rate: [
     {
       rate: {
