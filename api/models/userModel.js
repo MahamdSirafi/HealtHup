@@ -62,7 +62,7 @@ const userSchema = new mongoose.Schema(
       },
     },
     yearsOfExperiance: {
-      type: Number,
+      type: Number,min:0,max:100,
       required: function () {
         return this.role == 'doctor'
           ? [true, 'Please provide your yearsOfExperiance ']
