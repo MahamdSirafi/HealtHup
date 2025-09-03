@@ -79,6 +79,7 @@ const diseaseRouter = require('./routes/diseaseRouter');
 const cqRouter = require('./routes/cqRouter');
 const articlaRouter = require('./routes/articlaRouter');
 const testRouter = require('./routes/testRouter');
+const imageRouter = require('./routes/imageRoutes');
 
 // 3) ROUTES
 app.use('/docs', swaggerUI.serve, swaggerUI.setup(swaggerSpec));
@@ -89,6 +90,8 @@ app.use('/api/v1.0.0/cqs', cqRouter);
 app.use('/api/v1.0.0/articles', articlaRouter);
 app.use('/api/v1.0.0/tests', testRouter);
 app.use('/api/v1.0.0/users', userRouter);
+app.use('/api/v1.0.0/images', imageRouter);
+
 //في حال طلب مورد غير موجود
 app.all('*', (req, res, next) => {
   next(new AppError(`Can't find ${req.originalUrl} on this server!`, 404));
