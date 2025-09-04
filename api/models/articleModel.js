@@ -17,6 +17,7 @@ const articlaSchema = new mongoose.Schema(
     vedio: {
       type: String,
     },
+    
     photo: {
       required: [true, 'must enter cat'],
 
